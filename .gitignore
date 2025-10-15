@@ -35,3 +35,4 @@ Thumbs.db
 # Ignore build artifacts
 /build/
 /dist/
+composer.phar
