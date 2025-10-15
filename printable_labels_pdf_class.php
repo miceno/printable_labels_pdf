@@ -103,8 +103,7 @@
 
 
 // Require MPDF composer autoload
-require_once __DIR__ . '/mpdf/vendor/autoload.php';
-
+require_once __DIR__ . '/vendor/autoload.php';
 
 
 class printable_labels_pdf
@@ -112,7 +111,7 @@ class printable_labels_pdf
 	private $page_format; // Size of the page. You can pass an array of width & height or string format. See https://mpdf.github.io/ documentation
 	// array: [210,297]
 	// string format: 'A0’ - 'A10', 'B0' - 'B10', 'C0' - 'C10', '4A0', '2A0', 'RA0' - 'RA4', 'SRA0' - 'SRA4', 'Letter', 'Legal', 'Executive', 'Folio', 'Demy', 'Royal', 'A' (Type A paperback 111x178mm), 'B' (Type B paperback 128x198mm)
-    private $page_orientation; //	Landscape or Portraint. Possible values: ['L'|'P']
+    private $page_orientation; //	Landscape or Portrait. Possible values: ['L'|'P']
     private $margin_left_page; // Margin in cm. from bottom page
 	private $margin_top_page; // Margin in cm. from top page
 	private $margin_left_label; // Margin in cm. from left label (margin means outside label)
@@ -136,12 +135,18 @@ class printable_labels_pdf
 
 	private $arr_labels_html;
 
-	// Labels flux when generating pages
+    // Creation of dynamic property is deprecated in PHP 8.2
+    private $draw_border;
+
+    // Labels flux when generating pages
 	private $flux_page_num;
 	private $flux_col_num;
 	private $flux_row_num;
 	private $flux_id_label;
-	
+
+    // Creation of dynamic property is deprecated in PHP 8.2
+    private $flux_start_at_label;
+
 	private $mpdf;
 
 
@@ -287,7 +292,7 @@ class printable_labels_pdf
 
 
 		if( $file_name_pdf == null ){
-			$file_name_pdf = 'pritable_labels_pdf.pdf';
+			$file_name_pdf = 'labels.pdf';
 		}
 
 		// Calculate Time Diff

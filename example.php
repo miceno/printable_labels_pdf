@@ -22,7 +22,7 @@ $labels_config['width_label']			= 8.89;
 $labels_config['height_label']			= 2.33;
 
 $labels_config['num_cols']				= 2;
-$labels_config['num_rows']				= 12;
+$labels_config['num_rows']				= 11;
 
 $labels_config['margin_left_page']		= 1.3;
 $labels_config['margin_top_page']		= .2;
@@ -48,8 +48,8 @@ $printable_labels_pdf = new printable_labels_pdf( $labels_config );
 // Set draw borders to true
 $printable_labels_pdf->draw_border( true );
 
-// Generate 2.499 Labels
-for( $i=1; $i<2500; $i++){
+// Generate 250 Labels
+for( $i=1; $i<250; $i++){
 	
 	// Make a string of the html label
 	$label_html  = '<b>label '.$i.'</b><br />'; // 1st row. Bold
@@ -62,7 +62,7 @@ for( $i=1; $i<2500; $i++){
 }
 
 // Generate Pdf file
-$printable_labels_pdf->get_labels_pdf(); // Output a PDF file directly to the browser
+$printable_labels_pdf->get_labels_pdf('test.pdf', 'F'); // Output a PDF file directly to the browser
 
 /*
 

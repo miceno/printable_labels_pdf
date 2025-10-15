@@ -1,0 +1,37 @@
+# Ignore Composer dependencies
+/vendor/
+
+# Ignore Composer lock file if you do not want to track it
+# Uncomment the next line if desired
+# /composer.lock
+
+# Ignore IDE project files
+/.idea/
+/*.iml
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Ignore cache and temp files
+/cache/
+/tmp/
+
+# Ignore PHPUnit result files
+/phpunit.xml
+/phpunit.result.cache
+
+# Ignore coverage reports
+/coverage/
+
+# Ignore environment files
+.env
+.env.local
+.env.*.local
+
+# Ignore build artifacts
+/build/
+/dist/
