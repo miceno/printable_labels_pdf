@@ -9,8 +9,8 @@
  * @license GNU General Public License v3.0
 */
 
-require_once __DIR__ . '/printable_labels_pdf_class.php';
-
+require_once __DIR__ . '/vendor/autoload.php';
+use PrintableLabelsPdf\PrintableLabelsPdf;
 
 
 $labels_config = [];
@@ -43,10 +43,10 @@ $labels_config['begin_at_label_num']	= 4; // Defaults begin with label num. 1
 
 
 // Create an Instance of printable_labels_pdf()
-$printable_labels_pdf = new printable_labels_pdf( $labels_config );
+$printableLabelsPdf = new PrintableLabelsPdf($labels_config);
 
 // Set draw borders to true
-$printable_labels_pdf->draw_border( true );
+$printableLabelsPdf->draw_border( true );
 
 // Generate 250 Labels
 for( $i=1; $i<250; $i++){
@@ -58,11 +58,11 @@ for( $i=1; $i<250; $i++){
 	$label_html .= 'Line 4'; 					// 4th row. Standard text
 	
 	// send the html string to a new label
-	$printable_labels_pdf->write_label( $label_html );
+	$printableLabelsPdf->write_label( $label_html );
 }
 
 // Generate Pdf file
-$printable_labels_pdf->get_labels_pdf('test.pdf', 'F'); // Output a PDF file directly to the browser
+$printableLabelsPdf->get_labels_pdf('test.pdf', 'F'); // Output a PDF file directly to the browser
 
 /*
 

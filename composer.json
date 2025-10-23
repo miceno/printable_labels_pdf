@@ -1,5 +1,13 @@
 {
     "require": {
         "mpdf/mpdf": "^8.2"
+    },
+    "name": "your-vendor/printable-labels-pdf",
+    "description": "A PHP library to generate printable labels as PDF using mPDF.",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "PrintableLabelsPdf\\": "src/"
+        }
     }
 }
